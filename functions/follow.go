@@ -13,7 +13,7 @@ func FollowUser(db *gorm.DB, idFollower int, idFollowing int) (string, int, erro
 		return "", 400, errors.New("You cannot follow yourself")
 	}
 
-	// Buscar perfiles activos
+	// Search active profiles
 	var followerProfile models.Profile
 	var followingProfile models.Profile
 
@@ -25,7 +25,7 @@ func FollowUser(db *gorm.DB, idFollower int, idFollowing int) (string, int, erro
 		return "", 404, errors.New("Following profile not found or inactive")
 	}
 
-	// Verificar si ya sigue
+	// Verify before following
 	var existing models.Followers
 	err := db.Where("Id_Follower = ? AND Id_Following = ?", idFollower, idFollowing).First(&existing).Error
 	if err == nil {
@@ -40,7 +40,7 @@ func FollowUser(db *gorm.DB, idFollower int, idFollowing int) (string, int, erro
 		return "", 500, err
 	}
 
-	// Crear nueva relación
+	// Create new follow
 	newFollow := models.Followers{
 		IdFollower:  idFollower,
 		IdFollowing: idFollowing,
