@@ -1,6 +1,7 @@
 import requests
 
-BASE_URL_FOLLOW = "http://54.163.143.185:8080"  # Tu microservicio Go (follow)
+BASE_URL_FOLLOW = "http://54.163.143.185:8080"
+#BASE_URL_FOLLOW = "http://localhost:8080"   # Tu microservicio Go (follow)
 BASE_URL_LOGIN = "http://52.203.72.116:8080"   # Microservicio login en Python
 
 # Datos para login

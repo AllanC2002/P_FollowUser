@@ -1,24 +1,23 @@
 package main
 
 import (
+	"log"
 	"net/http"
 	"os"
 	"strings"
 
+	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
+
+	"github.com/golang-jwt/jwt/v5"
+
 	"github.com/AllanC2002/P_FollowUser/connection"
 	"github.com/AllanC2002/P_FollowUser/functions"
-
-	"log"
-
-	"github.com/gin-gonic/gin"
-	"github.com/golang-jwt/jwt/v5"
-	"github.com/joho/godotenv"
 )
 
 var SECRET_KEY string
 
 func main() {
-	// Cargar variables de entorno
 	err := godotenv.Load()
 	if err != nil {
 		log.Println("Warning: No .env file found")
@@ -36,6 +35,7 @@ func main() {
 
 	r := gin.Default()
 
+	// Endpoint Follow
 	r.POST("/follow", func(c *gin.Context) {
 		authHeader := c.GetHeader("Authorization")
 		if authHeader == "" || !strings.HasPrefix(authHeader, "Bearer ") {
