@@ -1,16 +1,14 @@
 import requests
 
 BASE_URL_FOLLOW = "http://54.163.143.185:8080"
-#BASE_URL_FOLLOW = "http://localhost:8080"   # Tu microservicio Go (follow)
-BASE_URL_LOGIN = "http://52.203.72.116:8080"   # Microservicio login en Python
+#BASE_URL_FOLLOW = "http://localhost:8080"  
+BASE_URL_LOGIN = "http://52.203.72.116:8080"   
 
-# Datos para login
 login_data = {
-    "User_mail": "allan",
+    "User_mail": "allancorrea",
     "password": "1234"
 }
 
-# Hacer login para obtener token
 login_response = requests.post(f"{BASE_URL_LOGIN}/login", json=login_data)
 
 if login_response.status_code != 200:
@@ -20,9 +18,8 @@ if login_response.status_code != 200:
 token = login_response.json().get("token")
 print("Token obtenido:", token)
 
-# Datos para seguir usuario (id_following debe ser el id del usuario a seguir)
 data_follow = {
-    "id_following": 4
+    "id_following": 1
 }
 
 # Headers con token para el microservicio Go
