@@ -120,9 +120,9 @@ jobs:
                 --restart always \
                 --name project_FollowUser \
                 -p 8080:8080 \
-                -e DBU_USER=${{ secrets.DBU_USER_PROD }} \
+                -e DBU_USER=${{ secrets.DBU_USER }} \
                 -e DBU_PASSWORD=${{ secrets.DBU_PASSWORD }} \
-                -e DBU_HOSTIP=${{ secrets.DBU_HOSTIP }} \
+                -e DBU_HOSTIP=${{ secrets.DBU_HOSTIP_PROD }} \
                 -e DBU_PORT=${{ secrets.DBU_PORT }} \
                 -e DBU_NAME=${{ secrets.DBU_NAME }} \
                 -e SECRET_KEY=${{ secrets.SECRET_KEY }} \
