@@ -1,11 +1,12 @@
 import requests
 
-BASE_URL_FOLLOW = "http://54.163.143.185:8080"
+#BASE_URL_FOLLOW = "http://54.163.143.185:8080"
+BASE_URL_FOLLOW = "http://3.213.77.198:8080"
 #BASE_URL_FOLLOW = "http://localhost:8080"  
-BASE_URL_LOGIN = "http://52.203.72.116:8080"   
+BASE_URL_LOGIN = "http://100.25.74.174:8080"   
 
 login_data = {
-    "User_mail": "allancorrea",
+    "User_mail": "allan",
     "password": "1234"
 }
 
@@ -19,7 +20,7 @@ token = login_response.json().get("token")
 print("Token obtenido:", token)
 
 data_follow = {
-    "id_following": 1
+    "id_following": 3
 }
 
 # Headers con token para el microservicio Go
